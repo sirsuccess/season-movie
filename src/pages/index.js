@@ -30,7 +30,7 @@ function App({ movie, getData, getState }) {
               </div>
               <div className="movieBotom">
                 <a href={url}>
-                  <h1>{name}</h1>
+                    <h1>{name}</h1>
                 </a>
                 <div className="movieDetails">
                   <div className="release">
