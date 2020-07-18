@@ -1,6 +1,6 @@
 import React from "react";
 
-import SearchComponent from "../components/Search";
+import SearchComponent from "../components/search";
 import "../styles/index.css";
 
 function App({ movie, getData, getState }) {
