@@ -1,6 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+
 import { groupBy } from "../utils";
+import SearchResult from "./SearchResult"
 
 function SearchComponent({
   getData,
@@ -41,15 +43,7 @@ function SearchComponent({
       ) : (
         season.map((movie, index) => {
           return (
-            <li onClick={() => handleRedirect(index)}>
-              <div className="searchImg">
-                <img src={movie[1][0].image.medium} alt="movie poster" />
-              </div>
-              <div className="search-item">
-                <div>{movie[1][0].name}</div>
-                <div className="search-season">Season {index + 1}</div>
-              </div>
-            </li>
+            <SearchResult handleRedirect={handleRedirect} movie={movie} index={index}/>
           );
         })
       )}

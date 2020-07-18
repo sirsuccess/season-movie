@@ -1,6 +1,6 @@
 import React from "react";
-import SearchComponent from "../components/search";
 
+import SearchComponent from "../components/Search";
 import "../styles/index.css";
 
 function App({ movie, getData, getState }) {
@@ -17,7 +17,7 @@ function App({ movie, getData, getState }) {
   } = movie;
 
   return (
-    <>
+    <div className="contain">
       <div className="index" styles={{ backgroundImage: `url(${original})` }}>
         {original && (
           <div className="movieCard">
@@ -57,10 +57,14 @@ function App({ movie, getData, getState }) {
           </div>
         )}
         <div>
-          <SearchComponent getData={getData} episodes={episodes} getState={getState}/>
+          <SearchComponent
+            getData={getData}
+            episodes={episodes}
+            getState={getState}
+          />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

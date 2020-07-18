@@ -15,9 +15,8 @@ const Modal = ({ onClose }) => {
     image: { original = "" } = "",
   } = episode;
 
-
   return (
-    <div  className="modalDialog" sonClick={() => onClose()}>
+    <div className="modalDialog" sonClick={() => onClose()}>
       <div className="modal-main">
         <div title="Close" className="close" onClick={() => onClose()}>
           X
@@ -40,7 +39,7 @@ const Modal = ({ onClose }) => {
                   Episode:<div className="movieDetailsTitle">{number}</div>
                 </div>
                 <div className="release">
-                Air date:<div className="movieDetailsTitle">{airdate}</div>
+                  Air date:<div className="movieDetailsTitle">{airdate}</div>
                 </div>
                 <div className="release">
                   Runtime:
