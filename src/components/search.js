@@ -2,7 +2,12 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { groupBy } from "../utils";
 
-function SearchComponent({ getData, episodes, history }) {
+function SearchComponent({
+  getData,
+  episodes,
+  history,
+  getState: { isLoading, isError },
+}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formElements = e.target.elements;
@@ -28,27 +33,26 @@ function SearchComponent({ getData, episodes, history }) {
             type="text"
             name="item"
             placeholder="Search movie..."
-
-            // onChange={searchFunct}
           ></input>
-          {/* <button type="reset" className="btn">
-            X
-          </button> */}
         </div>
       </form>
-      {season.map((movie, index) => {
-        return (
-          <li onClick={() => handleRedirect(index)}>
-            <div className="searchImg">
-              <img src={movie[1][0].image.medium} alt="movie poster" />
-            </div>
-            <div className="search-item">
-              <div>{movie[1][0].name}</div>
-              <div className="search-season">Season {index + 1}</div>
-            </div>
-          </li>
-        );
-      })}
+      {isLoading ? (
+        <div class="loader"></div>
+      ) : (
+        season.map((movie, index) => {
+          return (
+            <li onClick={() => handleRedirect(index)}>
+              <div className="searchImg">
+                <img src={movie[1][0].image.medium} alt="movie poster" />
+              </div>
+              <div className="search-item">
+                <div>{movie[1][0].name}</div>
+                <div className="search-season">Season {index + 1}</div>
+              </div>
+            </li>
+          );
+        })
+      )}
     </div>
   );
 }

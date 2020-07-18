@@ -1,5 +1,5 @@
 .index {
-  background-color: rgb(194, 196, 197);
+  background-color: rgb(35, 151, 209);
   display: flex;
   justify-content: space-evenly;
   
@@ -7,6 +7,7 @@
 }
 a{
   text-decoration: none;
+  color: rgb(35, 151, 209);
 }
 .movieCard{
   margin-bottom: 3em;
@@ -24,7 +25,7 @@ a{
 
   font-weight: 900;
   font-size: 40px;
-  color: rgb(148, 114, 5);
+  color: rgb(35, 151, 209);
 }
 
 .movieBotom{
@@ -87,6 +88,7 @@ input{
   border: none;
   font-size: 16px;
   outline: none;
+  
 }
 .btn{
   border: none;
@@ -159,6 +161,7 @@ margin: 0 auto;
   text-align: center;
   font-size: 50px;
   font-weight: 800;
+   color: rgb(35, 151, 209);;
 }
 .season-card-main{
   display: flex;
@@ -166,7 +169,11 @@ margin: 0 auto;
   justify-content: center;
   align-items: flex-start;
 }
-
+.subHead{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+}
 
 /* season card */
 
@@ -258,4 +265,29 @@ margin: 0 auto;
 .container3 .imgDiv img{
   width: 100%;
   height: 100%;
+}
+
+
+
+
+/* spinner */
+.loader {
+  border: 16px solid #0a0a0a;
+  border-radius: 50%;
+  border-top: 16px solid #fff;
+  width: 100px;
+  height: 100px;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

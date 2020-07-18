@@ -9,7 +9,9 @@ const Season = ({ movie, location }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const { _embedded: { episodes = [] } = "" } = movie;
+
   const seasons = Object.entries(groupBy(episodes, "season"));
+
   const option = seasons.map((item, index) => {
     return <option value={index}>Season {index + 1}</option>;
   });
@@ -20,10 +22,7 @@ const Season = ({ movie, location }) => {
   };
 
   const onClose = () => {
-	setIsOpen(!isOpen);
-	if(!isOpen){
-		// window.localStorage.removeItem('movieEpi');
-	}
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -31,9 +30,11 @@ const Season = ({ movie, location }) => {
       <h1 className="season-header" onClick={onClose}>
         {movie.name} Season {season + 1}
       </h1>
-      <Back />
-      <div onChange={handleChangeSeason} name="sort">
-        Filter:<select>{option}</select>
+      <div className="subHead">
+        <Back />
+        <div onChange={handleChangeSeason} name="sort">
+          Filter: <select>{option}</select>
+        </div>
       </div>
       {isOpen && <Modal onClose={onClose} />}
       <div className="season-card-main">

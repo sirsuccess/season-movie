@@ -3,7 +3,7 @@ import SearchComponent from "../components/search";
 
 import "../styles/index.css";
 
-function App({ movie, getData }) {
+function App({ movie, getData, getState }) {
   const {
     name,
     url,
@@ -18,7 +18,7 @@ function App({ movie, getData }) {
 
   return (
     <>
-      <div className="index">
+      <div className="index" styles={{ backgroundImage: `url(${original})` }}>
         {original && (
           <div className="movieCard">
             <div className="title">
@@ -57,8 +57,7 @@ function App({ movie, getData }) {
           </div>
         )}
         <div>
-          <SearchComponent getData={getData} episodes={episodes} />
-          {/* <SeasonCard episodes={episodes}/> */}
+          <SearchComponent getData={getData} episodes={episodes} getState={getState}/>
         </div>
       </div>
     </>

@@ -17,7 +17,7 @@ const Modal = ({ onClose }) => {
 
 
   return (
-    <div className="modalDialog" onClick={() => onClose()}>
+    <div  className="modalDialog" sonClick={() => onClose()}>
       <div className="modal-main">
         <div title="Close" className="close" onClick={() => onClose()}>
           X
