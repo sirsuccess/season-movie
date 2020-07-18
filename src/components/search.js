@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 import { groupBy } from "../utils";
-import SearchResult from "./SearchResult"
+import SearchResult from "./SearchResult";
 
 function SearchComponent({
   getData,
@@ -43,7 +43,11 @@ function SearchComponent({
       ) : (
         season.map((movie, index) => {
           return (
-            <SearchResult handleRedirect={handleRedirect} movie={movie} index={index}/>
+            <SearchResult
+              handleRedirect={handleRedirect}
+              movie={movie}
+              index={index}
+            />
           );
         })
       )}
