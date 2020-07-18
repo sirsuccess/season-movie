@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Index from "./pages";
-import Season from "./pages/Season";
 import { fetchData } from "./utils";
+import ErrorBoundary from "./components/ErrorBoundary";
+const Season = lazy(() => import("./pages/Season"));
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -13,8 +14,10 @@ function App() {
     getData("melin");
   }, []);
 
+  //fetch data
   const getData = (movieName) => {
     setIsLoading(true);
+
     fetchData(movieName)
       .then((data) => {
         setMovie(data);
@@ -26,24 +29,35 @@ function App() {
         setIsError(true);
       });
   };
-  //   console.log("movie", movie.image.original);
 
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Index movie={movie} getData={getData} getState={{isLoading, isError}} />
-          </Route>
-          <Route path="/season" exact>
-            <Season movie={movie} />
-          </Route>
-		  <Route path="*" >
-            <Index movie={movie} getData={getData} getState={{isLoading, isError}} />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <ErrorBoundary>
+      <div className="App">
+        <Suspense fallback={<div class="loader" />}>
+          <Router>
+            <Switch>
+              <Route path="/" exact>
+                <Index
+                  movie={movie}
+                  getData={getData}
+                  getState={{ isLoading, isError }}
+                />
+              </Route>
+              <Route path="/season" exact>
+                <Season movie={movie} />
+              </Route>
+              <Route path="*">
+                <Index
+                  movie={movie}
+                  getData={getData}
+                  getState={{ isLoading, isError }}
+                />
+              </Route>
+            </Switch>
+          </Router>
+        </Suspense>
+      </div>
+    </ErrorBoundary>
   );
 }
 

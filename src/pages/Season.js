@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { withRouter, Redirect } from "react-router-dom";
+
 import SeasonCard from "../components/SeasonCard";
 import { groupBy } from "../utils";
 import Back from "../components/Back";
 import Modal from "../components/Modal";
+
 const Season = ({ movie, location }) => {
   const [season, setSeason] = useState(location.state);
   const [isOpen, setIsOpen] = useState(false);
@@ -16,11 +18,19 @@ const Season = ({ movie, location }) => {
     return <option value={index}>Season {index + 1}</option>;
   });
 
+  useEffect(() => {
+    //redirect if undefined
+    if (seasons[season][1] === "undefined") {
+      return <Redirect to="/" />;
+    }
+  });
+
   const handleChangeSeason = (evt) => {
     const value = Number(evt.target.value);
     setSeason(value);
   };
 
+  //toggle modal
   const onClose = () => {
     setIsOpen(!isOpen);
   };

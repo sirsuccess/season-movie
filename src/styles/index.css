@@ -1,25 +1,27 @@
-.index {
+.contain {
   background-color: rgb(35, 151, 209);
+}
+.index {
   display: flex;
   justify-content: space-evenly;
-  
-  
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
 }
-a{
+a {
   text-decoration: none;
   color: rgb(35, 151, 209);
 }
-.movieCard{
+.movieCard {
   margin-bottom: 3em;
   width: 500px;
   background-color: rgb(232, 234, 235);
-
 }
-.movieCard .container{
+.movieCard .container {
   background-color: #fff;
   padding: 2em;
 }
-.title{
+.title {
   border-radius: 15px;
   padding: 0.5em;
 
@@ -28,53 +30,47 @@ a{
   color: rgb(35, 151, 209);
 }
 
-.movieBotom{
+.movieBotom {
   background-color: #fff;
   padding: 2em 0;
 
   margin-top: -2em;
   border-radius: 15px;
 }
-.imgDiv{
-
+.imgDiv {
   height: 530px;
   max-width: 100%;
-
 }
-.imgDiv img{
+.imgDiv img {
   border-radius: 10px;
   width: 100%;
   height: 100%;
   object-fit: fill;
-
-  
 }
-.summary{
+.summary {
   line-height: 30px;
   text-align: justify;
 }
-.movieDetails{
+.movieDetails {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2em;
 }
-.release{
+.release {
   font-size: 20px;
   font-weight: 600;
 }
-.movieDetailsTitle{
+.movieDetailsTitle {
   font-size: 15px;
   font-weight: 600;
   margin-top: 0.5em;
-  color:rgb(194, 196, 197);
+  color: rgb(194, 196, 197);
 }
 
-
-.search{
+.search {
   width: 400px;
-  
 }
-.innerSearch{
+.innerSearch {
   background-color: #fff;
   display: flex;
   align-items: center;
@@ -82,31 +78,30 @@ a{
   padding: 0.1em 1em;
   margin-top: 2em;
 }
-input{
+input {
   width: 320px;
   padding: 0.5em 1em;
   border: none;
   font-size: 16px;
   outline: none;
-  
 }
-.btn{
+.btn {
   border: none;
   background-color: #fff;
   font-size: 22px;
   outline: none;
   cursor: pointer;
 }
-.search-item{
+.search-item {
   margin-left: 1em;
   font-weight: 700;
   text-align: left;
 }
-.search-season{
+.search-season {
   color: rgba(93, 95, 93, 0.933);
   margin-top: 0.5em;
 }
-li{
+li {
   display: flex;
   justify-content: flex-start;
   padding-left: 0.2em;
@@ -122,10 +117,10 @@ li{
   text-align: center;
   list-style: none;
 }
-.searchImg{
-  height: 79px; 
+.searchImg {
+  height: 79px;
 }
-.searchImg img{
+.searchImg img {
   height: 100%;
 
   border-bottom-left-radius: 5em;
@@ -137,62 +132,61 @@ li{
     flex-direction: column-reverse;
   }
 
-  .movieCard{
+  .movieCard {
     width: 80%;
     margin: 2em auto;
   }
-  .search{
+  .search {
     width: 300px;
     margin: 0 auto;
-    
   }
-  .innerSearch{
+  .innerSearch {
     margin: 1em auto;
-  
   }
 }
 
 /* season */
-.season-container{
+.season-container {
   max-width: 1000px;
-margin: 0 auto;
+  margin: 0 auto;
 }
-.season-header{
+.season-header {
   text-align: center;
   font-size: 50px;
   font-weight: 800;
-   color: rgb(35, 151, 209);;
+  color: rgb(35, 151, 209);
 }
-.season-card-main{
+.season-card-main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
 }
-.subHead{
+.subHead {
   display: flex;
   justify-content: space-between;
   padding: 0 1em;
 }
+select {
+  outline: none;
+}
 
 /* season card */
 
-.season-card{
+.season-card {
   width: 300px;
   border-radius: 15px;
   margin: 1em;
   cursor: pointer;
 }
-.season-card summary p{
+.season-card summary p {
   display: inline !important;
-
 }
-.season-card-imgDiv{
+.season-card-imgDiv {
   width: 100%;
   height: 200px;
-
 }
-.season-card-imgDiv img{
+.season-card-imgDiv img {
   width: 100%;
   object-fit: contain;
 }
@@ -207,7 +201,7 @@ margin: 0 auto;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 99999;
-  opacity:1;
+  opacity: 1;
   -webkit-transition: opacity 100ms ease-in;
   -moz-transition: opacity 100ms ease-in;
   transition: opacity 100ms ease-in;
@@ -215,7 +209,7 @@ margin: 0 auto;
   overflow: scroll;
   padding-bottom: 3em;
 }
-.modal-main{
+.modal-main {
   width: 100%;
   height: 100%;
 }
@@ -223,7 +217,7 @@ margin: 0 auto;
   max-width: 800px;
   width: 90%;
   position: relative;
-  
+
   margin: 2% auto;
   padding: 20px;
   border-radius: 3px;
@@ -254,21 +248,17 @@ margin: 0 auto;
 .close:hover {
   background: #fa3f6f;
 }
-.container3{
-
+.container3 {
   width: 100%;
 }
-.container3 .imgDiv{
+.container3 .imgDiv {
   width: 1000px !important;
   height: 100%;
 }
-.container3 .imgDiv img{
+.container3 .imgDiv img {
   width: 100%;
   height: 100%;
 }
-
-
-
 
 /* spinner */
 .loader {
@@ -283,11 +273,19 @@ margin: 0 auto;
 
 /* Safari */
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
