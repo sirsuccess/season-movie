@@ -129,19 +129,26 @@ li {
 
 @media only screen and (max-width: 800px) {
   .App {
+    width: 100%;
+  }
+  .index {
     flex-direction: column-reverse;
+    justify-content: center;
   }
 
   .movieCard {
     width: 80%;
-    margin: 2em auto;
+    margin: 0 auto;
   }
   .search {
-    width: 300px;
+    width: 85%;
     margin: 0 auto;
   }
   .innerSearch {
     margin: 1em auto;
+  }
+  li {
+    width: 90%;
   }
 }
 
@@ -262,13 +269,14 @@ select {
 
 /* spinner */
 .loader {
-  border: 16px solid #0a0a0a;
+  border: 8px solid #272626;
   border-radius: 50%;
-  border-top: 16px solid #fff;
+  border-top: 8px solid #fff;
   width: 100px;
   height: 100px;
   -webkit-animation: spin 1s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
+  margin: 2rem auto;
 }
 
 /* Safari */
@@ -289,3 +297,4 @@ select {
     transform: rotate(360deg);
   }
 }
+
