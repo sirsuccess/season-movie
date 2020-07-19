@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, Redirect } from "react-router-dom";
+import InViewMonitor from "react-inview-monitor";
 
 import SeasonCard from "../components/SeasonCard";
 import { groupBy } from "../utils";
 import Back from "../components/Back";
 import Modal from "../components/Modal";
+import SeasonDisplay from "../components/SeasonDisplay";
 
 const Season = ({ movie, location }) => {
   const [season, setSeason] = useState(location.state);
@@ -15,7 +17,12 @@ const Season = ({ movie, location }) => {
   const seasons = Object.entries(groupBy(episodes, "season"));
 
   const option = seasons.map((item, index) => {
-    return <option value={index}>Season {index + 1}</option>;
+    return (
+      <option value={index} key={index}>
+        {" "}
+        Season {index + 1}
+      </option>
+    );
   });
 
   useEffect(() => {
@@ -47,11 +54,13 @@ const Season = ({ movie, location }) => {
         </div>
       </div>
       {isOpen && <Modal onClose={onClose} />}
-      <div className="season-card-main">
-        {seasons[season][1].map((item) => (
-          <SeasonCard number={item} onClose={onClose} />
-        ))}
-      </div>
+
+      <InViewMonitor
+        classNameNotInView="vis-hidden"
+        classNameInView="animated fadeInUp"
+      >
+        <SeasonDisplay seasons={seasons} season={season} onClose={onClose} />
+      </InViewMonitor>
     </div>
   );
 };

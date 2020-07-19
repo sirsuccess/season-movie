@@ -17,7 +17,7 @@ const Back = () => {
         cursor: "pointer",
         display: "flex",
         borderRadius:"5px",
-        "justify-content": "space-between",
+        justifyContent: "space-between",
         alignItems:"center",
         marginBottom: "1em" 
     }}
