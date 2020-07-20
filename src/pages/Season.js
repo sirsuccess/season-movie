@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter, Redirect } from "react-router-dom";
-import InViewMonitor from "react-inview-monitor";
 
-import SeasonCard from "../components/SeasonCard";
 import { groupBy } from "../utils";
 import Back from "../components/Back";
 import Modal from "../components/Modal";
@@ -54,13 +52,7 @@ const Season = ({ movie, location }) => {
         </div>
       </div>
       {isOpen && <Modal onClose={onClose} />}
-
-      <InViewMonitor
-        classNameNotInView="vis-hidden"
-        classNameInView="animated fadeInUp"
-      >
-        <SeasonDisplay seasons={seasons} season={season} onClose={onClose} />
-      </InViewMonitor>
+       <SeasonDisplay seasons={seasons} season={season} onClose={onClose} />
     </div>
   );
 };
