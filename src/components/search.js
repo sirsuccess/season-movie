@@ -31,7 +31,7 @@ function SearchComponent({
       <form name="search" onSubmit={handleSubmit}>
         <div className="innerSearch">
           <input
-            autofocus="autofocus"
+            autoFocus="autofocus"
             type="text"
             name="item"
             placeholder="Search movie..."
@@ -39,15 +39,17 @@ function SearchComponent({
         </div>
       </form>
       {isLoading ? (
-        <div class="loader"></div>
+        <div className="loader"></div>
       ) : (
         season.map((movie, index) => {
           return (
+            <div key={index}>
             <SearchResult
               handleRedirect={handleRedirect}
               movie={movie}
               index={index}
             />
+            </div>
           );
         })
       )}

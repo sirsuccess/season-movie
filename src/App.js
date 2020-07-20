@@ -33,7 +33,7 @@ function App() {
   return (
     <ErrorBoundary>
       <div className="App">
-        <Suspense fallback={<div class="loader" />}>
+        <Suspense fallback={<div className="loader" />}>
           <Router>
             <Switch>
               <Route path="/" exact>
